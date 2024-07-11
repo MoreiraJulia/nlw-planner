@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Entity // Indica para o JPA que isso é uma entidade
 @Table(name = "trips")
 @Getter
 @Setter
@@ -23,27 +23,27 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Trip {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Id // Indica que é a chave primária da tabela
+    @GeneratedValue(strategy = GenerationType.AUTO) //Indica que é gerada automaticamente utilizando o generationType
+    private UUID id; //Pegamos o id da tabela
 
-    @Column(nullable = false)
-    private String destination;
+    @Column(nullable = false) //Indica que é uma coluna na tabela e que não é nulo
+    private String destination; //Pega o destino da viagem
 
-    @Column(name = "starts_at", nullable = false)
-    private LocalDateTime startsAt;
+    @Column(name = "starts_at", nullable = false) //Indica que é uma coluna na tabela e que seu nome é starts_at
+    private LocalDateTime startsAt; //Pega a data de inicio
 
-    @Column(name = "ends_at", nullable = false)
-    private LocalDateTime endsAt;
+    @Column(name = "ends_at", nullable = false)//Indica que é uma coluna na tabela e que seu nome é ends_at
+    private LocalDateTime endsAt;//Pega a data final
 
-    @Column(name = "is_confirmed", nullable = false)
-    private Boolean isConfirmed;
+    @Column(name = "is_confirmed", nullable = false)//Indica que é uma coluna na tabela e que seu nome é is_confirmed
+    private Boolean isConfirmed;//Pega se está confirmado ou não
 
-    @Column(name = "owner_name", nullable = false)
-    private String ownerName;
+    @Column(name = "owner_name", nullable = false)//Indica que é uma coluna na tabela e que seu nome é owner_name
+    private String ownerName;//Pega o nome do dono
 
-    @Column(name = "owner_email", nullable = false)
-    private String ownerEmail;
+    @Column(name = "owner_email", nullable = false)//Indica que é uma coluna na tabela e que seu nome é owner_email
+    private String ownerEmail;//Pega o e-mail do dono
 
     public Trip(TripRequestPayload data){
         this.destination = data.destination();
