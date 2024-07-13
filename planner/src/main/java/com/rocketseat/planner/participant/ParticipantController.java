@@ -18,19 +18,19 @@ public class ParticipantController {
     @Autowired
     private ParticipantRepository repository;
 
-    @PostMapping("/{id}/confirm")
-    public ResponseEntity<Participant> confirmParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){
+    @PostMapping("/{id}/confirm") //Precisamos receber o e-mail do participante para confirmar
+    public ResponseEntity<Participant> confirmParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){//A busca será feita pelo id, e no body receberemos as informações já existentes. 
         Optional<Participant> participant = this.repository.findById(id);
 
-        if(participant.isPresent()){
+        if(participant.isPresent()){ //Se o participante existe 
             Participant rawParticipant = participant.get();
             rawParticipant.setIsConfirmed(true);
             rawParticipant.setName(payload.name());
 
-            this.repository.save(rawParticipant);
+            this.repository.save(rawParticipant); //Salva a confirmação e o nome 
 
-            return ResponseEntity.ok(rawParticipant);
+            return ResponseEntity.ok(rawParticipant); //Deu tudo certo, retorna as informações
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.notFound().build(); //Caso não encontre o participante
     }
 }
