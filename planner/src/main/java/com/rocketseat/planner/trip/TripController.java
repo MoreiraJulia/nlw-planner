@@ -115,7 +115,7 @@ public class TripController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{id}/participants")
+    @GetMapping("/{id}/participants") //Listar participantes da viagem
     public ResponseEntity<List<ParticipantData>> getAllParticipants(@PathVariable UUID id){
         List<ParticipantData> participantList = this.participantService.getAllParticipantsFromEvent(id);
         
@@ -136,7 +136,7 @@ public class TripController {
         return ResponseEntity.notFound().build();
     }
     
-    @GetMapping("/{id}/activities")
+    @GetMapping("/{id}/activities")//Listar atividades da viagem
     public ResponseEntity<List<ActivityData>> getAllActivities(@PathVariable UUID id){
         List<ActivityData> activityDataList = this.activityService.getAllActivitiesFromEvent(id);
         

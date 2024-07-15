@@ -20,19 +20,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "activities")
+@Table(name = "activities") //Faz referência a tabela activities
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Activity {
 
+    //Aqui declaramos os campos, sendo eles da tabela criada
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //Id gerado de forma automática
     private UUID id;
 
-    @Column(name = "occurs_at", nullable = false)
-    private LocalDateTime occursAt;
+    @Column(name = "occurs_at", nullable = false) //Aqui é o nome exato que está na tabela do banco de dados
+    private LocalDateTime occursAt; //Aqui é forma como ele será utilizado na aplicação
 
     @Column(nullable = false)
     private String title;
