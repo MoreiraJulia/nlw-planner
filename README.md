@@ -5,13 +5,16 @@ O Projeto foi desenvolvido durante o Evento NLW Journey da Rocketseat com a tril
 ## Sobre o Projeto 
 O projeto possui como objetivo orientar o usuário a organizar suas viagens. O usuário pode criar uma viagem com nome, data de início e fim. Dentro da viagem o usuário pode planejar sua viagem adicionando atividades para realizar em cada dia, convidando pessoas para participarem das viagens e também organizar as tarefas com links de ajuda.
 
-### Foram utilizadas as seguindes tecnologias
+### Foram utilizadas as seguintes tecnologias
 • Java 17 <br>
 • Spring Boot <br>
 • Maven <br>
 • Lombok<br>
 • JPA <br>
 • H2 Database 
+
+• IDE - Visual Studio Code<br>
+• API Client - Insomnia
 
 ---
 
